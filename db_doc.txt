@@ -1,0 +1,25 @@
+Документация на бд mts.db
+
+table Users:
+id - уникальный идентификатор пользователя integer primary key
+name - имя пользователя в twitter text
+created_at - дата создания пользователя
+
+table Country:
+country_code - уникальный идентификатор страны primary key
+country - название страны varchar(255)
+
+table Tweets:
+id - уникальнй идентификатор твита primary key
+user_id - айди пользователя integer
+tweet_text - текст твита
+url - ссылка на твит, образована по образцу twitter.com/user_id/status/tweet_id
+lang - язык на котором написан твит
+loc - локация твита (если доступна)
+coordinates - координаты с который написан твит (LON, LAT). если массив - то координаты полигона, ограниченного точками
+country_code - код страны в которой находится отправивший твит
+created_at - дата создания UTC time 
+
+table Tweet_sentiment:
+id - уникальнй идентификатор твита
+sentiment - настроение твита (по списку слов из словаря) 
